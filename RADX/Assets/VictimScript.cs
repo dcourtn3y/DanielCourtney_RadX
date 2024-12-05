@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class VictimScript : MonoBehaviour
 {
-    internal static void Bump(float explosionForce, Vector3 explosionPosition, float explosionRadius)
+    internal void Bump(float explosionForce, Vector3 explosionPosition, float explosionRadius)
     {
         print("Bumped");
         Renderer renderer = GetComponent<Renderer>();
