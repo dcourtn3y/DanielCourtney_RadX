@@ -22,6 +22,23 @@ public class CubeControlScript : MonoBehaviour
             rb.AddForce(Vector3.forward);
         }
 
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            rb.AddForce(Vector3.back);
+        }
+
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            transform.Translate(-Vector3.right * jumpForce * Time.deltaTime);
+        }
+
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            transform.Translate(Vector3.right * jumpForce * Time.deltaTime);
+        }
+
+
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             rb.AddForce(jumpForce * Vector3.up, ForceMode.Impulse);
