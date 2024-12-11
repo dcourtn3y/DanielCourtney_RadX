@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class CubeControlScript : MonoBehaviour
 {
@@ -8,11 +9,21 @@ public class CubeControlScript : MonoBehaviour
     float jumpForce = 5;
     float explosionRadius = 5;
     float explosionStrength = 1000;
+
+    public int score = 0;
+    public int maxScore;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
+
+    public void AddScore(int newScore)
+    {
+        score += newScore;
+    }
+
+    
 
     // Update is called once per frame
     void Update()
@@ -46,6 +57,11 @@ public class CubeControlScript : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+
+        if (collision.gameObject.name == "Victim")
+        {
+            AddScore(1);
+        }
         VictimScript victimScript = collision.gameObject.GetComponent<VictimScript>();
 
         Collider[] allVictims = Physics.OverlapSphere(transform.position + Vector3.down, explosionRadius);
