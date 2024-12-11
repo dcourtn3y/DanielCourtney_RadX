@@ -2,9 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class VictimScript : MonoBehaviour
 {
+    public int score = 0;
+ 
     internal void Bump(float explosionForce, Vector3 explosionPosition, float explosionRadius)
     {
         print("Bumped");
@@ -16,6 +19,7 @@ public class VictimScript : MonoBehaviour
             rb.AddExplosionForce(explosionForce, explosionPosition, explosionRadius);
         }
     }
+
 
     // Start is called before the first frame update
     void Start()
